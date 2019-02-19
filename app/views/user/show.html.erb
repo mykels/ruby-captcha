@@ -1,0 +1,9 @@
+<div class="form-container">
+  <p>I am <%= @user.username %></p>
+  <p>My password is <%= @user.password %></p>
+
+  <%= button_to "Back", {action: "new", remote: true}, {class: 'cool-button'} %>
+
+</div>
+
+

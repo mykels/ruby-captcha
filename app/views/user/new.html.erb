@@ -1,0 +1,19 @@
+<%#= form_for @user, :url => "createNegative", :html => {:class => "form-container"} do |f| %>
+<%#= raw negative_captcha(@captcha) %>
+<%#= f.negative_text_field :username, :class => "cool-input" %>
+<%#= f.negative_password_field :password, :class => "cool-input" %>
+<%#= f.submit "Submit Negative" , :class => "cool-button"%>
+<%# end %>
+
+<%= form_tag({:action => 'create_negative'}, {:class => 'form-container'}) do %>
+  <%= raw negative_captcha(@captcha) %>
+  <%= negative_text_field_tag(@captcha, :username, :class => "cool-input") %>
+  <%= negative_text_field_tag(@captcha, :password, :class => "cool-input") %>
+  <%= submit_tag "Submit Negative", :class => "cool-button" %>
+<% end %>
+
+<%= form_for @user, :url => "create_invisible", :html => {:id=> "invisible-form", :class => "form-container"} do |f| %>
+  <%= f.text_field :username, :class => "cool-input" %>
+  <%= f.password_field :password, :class => "cool-input" %>
+  <%= f.submit "Submit Invisible", :class => "cool-button g-recaptcha", :'data-sitekey' => "6LeYdJIUAAAAAHeP_jM0Ln8I0p1_0UeWEHtOQD20", :'data-callback' => 'onSubmit' %>
+<% end %>
